@@ -1,0 +1,12 @@
+# production
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# frontend (react)
+frontend/app/password-manager-app/node_modules
+frontend/app/password-manager-app/build
