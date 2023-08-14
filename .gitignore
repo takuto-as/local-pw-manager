@@ -13,3 +13,6 @@ frontend/app/password-manager-app/build
 
 # backend (django)
 __pycache__
+
+# db (postgresql)
+db/data
