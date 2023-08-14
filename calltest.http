@@ -1,0 +1,21 @@
+GET http://localhost:8000/users/?indent=4 HTTP/1.1
+Accept: application/json
+Authorization: Basic admin:tactppp1320
+
+###
+
+GET http://localhost:8000/item/login HTTP/1.1
+Accept: application/json
+
+###
+POST http://localhost:8000/item/login/?format=json HTTP/1.1
+Content-type: application/json
+
+{
+    "name": "calltest6",
+    "user_name": "tact",
+    "password": "fdfdlgkb",
+    "url": "",
+    "active": true,
+    "description": "test 222"
+}
