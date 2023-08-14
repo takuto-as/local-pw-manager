@@ -1,4 +1,4 @@
-# production
+
 
 # misc
 .DS_Store
@@ -8,5 +8,8 @@
 .env.production.local
 
 # frontend (react)
-frontend/app/password-manager-app/node_modules
+node_modules
 frontend/app/password-manager-app/build
+
+# backend (django)
+__pycache__
