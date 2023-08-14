@@ -1,0 +1,42 @@
+version: "3"
+services:
+  api:
+    build: ./api
+    volumes:
+     - ./api/app/:/app
+    ports:
+      - "8000:80"
+    env_file:
+      - ./docker.env
+    stdin_open: true
+    tty: true
+    networks:
+      - default
+    depends_on:
+      - db
+  db:
+    build: ./db
+    restart: always
+    ports: 
+      - "5432:5432"
+    volumes:
+      - ./db/init/:/docker-entrypoint-initdb.d
+      - ./db/data/:/var/lib/postgresql/data
+    env_file:
+      - ./docker.env
+    networks:
+      - default
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend/app/:/usr/src/app
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./docker.env
+    stdin_open: true
+    tty: true
+    networks:
+      - default
+networks:
+  default:
