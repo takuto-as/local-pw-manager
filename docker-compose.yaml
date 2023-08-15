@@ -1,9 +1,10 @@
 version: "3"
 services:
-  api:
-    build: ./api
+  backend:
+    container_name: apiserver
+    build: ./backend
     volumes:
-     - ./api/app/:/app
+     - ./backend/app/:/app
     ports:
       - "8000:80"
     env_file:
@@ -15,6 +16,7 @@ services:
     depends_on:
       - db
   db:
+    container_name: dbserver
     build: ./db
     restart: always
     ports: 
@@ -27,6 +29,7 @@ services:
     networks:
       - default
   frontend:
+    container_name: webserver
     build: ./frontend
     volumes:
       - ./frontend/app/:/usr/src/app
